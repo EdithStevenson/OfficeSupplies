@@ -10,7 +10,7 @@ public class Projector
 {
     // instance variables - replace the example below with your own
     private boolean power;
-    
+    private ArrayList<String> slideshow; 
     
     /**
      * Constructor for objects of class Projector
@@ -19,6 +19,7 @@ public class Projector
     {
         // initialise instance variables
         power = false; 
+        slideshow = new ArrayList<String>(); 
     }
 
     public boolean getPowerStatus()
@@ -29,5 +30,12 @@ public class Projector
     {
         power = !power; 
     }
-    
+    public void addSlide(String slide)
+    {
+        slideshow.add(slide); 
+    }
+    public ArrayList getPresentation()
+    {
+        return slideshow; 
+    }
 }

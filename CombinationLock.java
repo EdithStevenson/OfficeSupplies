@@ -2,21 +2,23 @@
 /**
  * Write a description of class CombinationLock here.
  *
- * @author (your name)
+ * @author 
  * @version (a version number or a date)
  */
 public class CombinationLock
 {
     // instance variables - replace the example below with your own
-    private int x;
+    private boolean locked; 
+    
 
     /**
      * Constructor for objects of class CombinationLock
      */
-    public CombinationLock()
+    public CombinationLock(int[] rightCombo)
     {
         // initialise instance variables
-        x = 0;
+        locked = true; 
+        combo = rightCombo; 
     }
 
     /**
@@ -25,9 +27,19 @@ public class CombinationLock
      * @param  y  a sample parameter for a method
      * @return    the sum of x and y
      */
-    public int sampleMethod(int y)
+    
+        
+    public void enterNumber(int n)
     {
-        // put your code here
-        return x + y;
+        for (int i = 0; i < 
+        
+    }
+    public void open()
+    {
+        for (int i = 0; i < combo.length; i++)
+        {
+           if (combo[i] 
+        }
+      
     }
 }
