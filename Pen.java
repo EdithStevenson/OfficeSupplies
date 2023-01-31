@@ -15,8 +15,8 @@ public class Pen
      */
     public Pen()
     {
-        cap = false;
-        inkAmount = 1.5;
+        cap = true;
+        inkAmount = 1.5; //amount in mL
     }
 
     /**
@@ -45,7 +45,7 @@ public class Pen
      */
     public void capOff()
     {
-        cap = true;
+        cap = false;
     }
     
     /**
@@ -75,27 +75,28 @@ public class Pen
      */
     public String write(String message)
     {
-        int characters = 0;
-        if (cap)
+        String printMessage = "";
+        if (!cap)
         {
-            for (int i = 0; i < message.length(); i++)
+            for (int i = 0; i<message.length(); i++)
             {
-                if (!message.substring(i).equals(" "))
+                if (inkAmount < 0)
                 {
-                    characters += 1;
-                }
-            }
-            
-            for (int j = 0; j<characters; j++)
-            {
-                inkAmount -= 0.001;
-                if (inkAmount <= 0)
-                {
-                    message += " You've ran out of ink";
+                    printMessage += "Oh no! You've ran out of ink";
                     break;
                 }
+                
+                if (!message.substring(i).equals(" "))
+                {
+                   inkAmount -= 0.001;
+                   printMessage += message.substring(i); 
+                }
+                else
+                {
+                    printMessage += message.substring(i);
+                }
             }
-            return message;
+            return printMessage;
         }
         else
         {
