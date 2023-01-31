@@ -1,9 +1,9 @@
 
 /**
- * Write a description of class ProjectorTester here.
+ *  ProjectorTester
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author Edith and Grace
+ * @version 01-30-2023
  */
 import java.util.ArrayList; 
 public class ProjectorTester

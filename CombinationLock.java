@@ -1,45 +1,146 @@
 
 /**
- * Write a description of class CombinationLock here.
+ * Combination Lock
  *
- * @author 
- * @version (a version number or a date)
+ * @Edith and Grace
+ * @version 01-30-2023
  */
 public class CombinationLock
 {
-    // instance variables - replace the example below with your own
-    private boolean locked; 
-    
+    private int firstNum;
+    private int secondNum;
+    private int thirdNum;
+    private boolean lockedStatus;
 
     /**
-     * Constructor for objects of class CombinationLock
+     * Constructor for objects of class CombinationLock (if user enters own combination)
      */
-    public CombinationLock(int[] rightCombo)
+    public CombinationLock(int firstNum, int secondNum, int thirdNum)
     {
-        // initialise instance variables
-        locked = true; 
-        combo = rightCombo; 
+        this.firstNum = firstNum;
+        this.secondNum = secondNum;
+        this.thirdNum = thirdNum;
+        lockedStatus = false;
     }
-
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
     
-        
-    public void enterNumber(int n)
+    /**
+     * Constructor for objects of class CombinationLock (randomizes code)
+     */
+    public CombinationLock()
     {
-        for (int i = 0; i < 
-        
+        firstNum = (int) (Math.random() * 40);
+        secondNum = (int) (Math.random() * 40);
+        thirdNum = (int) (Math.random() * 40);
+        lockedStatus = false;
     }
-    public void open()
+    
+    /**
+     * returns lock status
+     * 
+     * @return the locked status of lock
+     * 
+     */
+    public boolean getLockStatus()
     {
-        for (int i = 0; i < combo.length; i++)
-        {
-           if (combo[i] 
-        }
-      
+        return lockedStatus;
+    }
+    
+     /**
+     * changes locked status
+     * 
+     */
+    public void lock()
+    {
+         lockedStatus = true;
+    }
+    
+     /**
+     * gets lock combo
+     * 
+     * @return String version of combo
+     */
+    public String getCombo()
+    {
+         String combo = firstNum +"-" + secondNum + "-"+ thirdNum;
+         return combo;
+    }
+    
+     /**
+     * gets 1st number of lock combo
+     * 
+     * @return int of 1st number of lock combo
+     */
+    public int getFirstNum()
+    {
+         return firstNum;
+    }
+    
+     /**
+     * gets 2nd number of lock combo
+     * 
+     * @return int of 2nd number of lock combo
+     */
+    public int getSecondNum()
+    {
+         return secondNum;
+    }
+    
+     /**
+     * gets 3rd number of lock combo
+     * 
+     * @return int of 3rd number of lock combo
+     */
+    public int getThirdNum()
+    {
+         return thirdNum;
+    }
+    
+     /**
+     * try openning the lock (must be locked to begin)
+     * 
+     * @param first number
+     * @param second number
+     * @param third number
+     * @return message of success/error
+     */
+    public String openLock(int oneNum, int twoNum,int threeNum)
+    {
+         String message = "";
+        if (lockedStatus)
+         {
+             if (oneNum == firstNum)
+             {
+                 if (twoNum == secondNum)
+                 {
+                     if (threeNum == thirdNum)
+                     {
+                         lockedStatus = false;
+                         message = "Unlocked!";
+                     }
+                     else
+                         message = "Still locked! 3rd number wrong";
+                 }
+                 else
+                     message = "Still locked! 2nd number wrong";
+             }
+             else
+             message = "Still locked! 1st number wrong";
+         }
+         else
+         {
+             message = "Whoops! Lock needs to be locked for you to try to unlock it!";
+         }
+         return message;
+    }
+    
+     /**
+     * reset the lock combo
+     * 
+     */
+    public void reset()
+    {
+        firstNum = (int) (Math.random() * 40);
+        secondNum = (int) (Math.random() * 40);
+        thirdNum = (int) (Math.random() * 40);
     }
 }
