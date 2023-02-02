@@ -72,7 +72,6 @@ public class CombinationLockTester
         System.out.println("");
         
         System.out.println("Let's check the lock status");
-        lockB.lock();
         if (lockB.getLockStatus())
         {
             System.out.println("Locked");
@@ -96,7 +95,6 @@ public class CombinationLockTester
         System.out.println("");
         
         System.out.println("Let's check the lock status");
-        lockB.lock();
         if (lockB.getLockStatus())
         {
             System.out.println("Locked");

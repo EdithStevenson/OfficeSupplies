@@ -80,20 +80,19 @@ public class Pen
         {
             for (int i = 0; i<message.length(); i++)
             {
-                if (inkAmount < 0)
+                if (!message.substring(i, i+1).equals(" "))
                 {
+                   printMessage += message.substring(i, i+1); 
+                   inkAmount -= 0.001;
+                   if (inkAmount < 0)
+                    {
                     printMessage += "Oh no! You've ran out of ink";
                     break;
-                }
-                
-                if (!message.substring(i).equals(" "))
-                {
-                   inkAmount -= 0.001;
-                   printMessage += message.substring(i); 
+                    }
                 }
                 else
                 {
-                    printMessage += message.substring(i);
+                    printMessage += " ";
                 }
             }
             return printMessage;
